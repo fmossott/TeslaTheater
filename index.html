@@ -5,34 +5,20 @@
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="teslatheater.css">
+  <script src="teslatheater.js"></script>
 </head>
 <body>
   <h1><img src="images/tesla-white.png" class="inline"/ alt="Tesla">&nbsp; Theater</h1>
   <h2>Select an App</h2>
   <div id="apps" class="container">
-    <div id="primevideo" link="https://www.primevideo.com/" class="button">
-      <div>
-        <img src="images/primevideo.png" alt="Prime Video">
+    <template id="site-template">
+      <div link="https://link.com/" class="button">
+        <div>
+          <img alt="site name"/>
+        </div>
       </div>
-    </div>
-    <div id="plex" link="https://app.plex.tv/" class="button">
-      <div>
-        <img src="images/plex.png" alt="Plex">
-      </div>
-    </div>
-    <div id="disneyplus" link="http://www.disneyplus.com/" class="button">
-      <div>
-        <img src="images/disney.png" alt="Disney+">
-      </div>
-    </div>
+    </template>
   </div>
   <p>© 2022 by <a href="https://github.com/fmossott"><img src="images/github.png" alt="GitHub" class="inline"/> fmossott</a></p>
 </body>
-<script>
-  $(document).ready(function() {
-    $("#apps").on("click", ".button", function() {
-      window.location.href = "https://www.youtube.com/redirect?q="+$(this).attr("link");
-    });
-  });
-</script>
 </html>

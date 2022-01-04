@@ -1,0 +1,32 @@
+[
+  {
+    "id": "primevideo",
+    "name": "Prime Video",
+    "img": "primevideo.png",
+    "url": "https://www.primevideo.com/"
+  },
+  {
+    "id": "plex",
+    "name": "Plex",
+    "img": "plex.png",
+    "url": "https://app.plex.tv/"
+  },
+  {
+    "id": "disneyplus",
+    "name": "Disney+",
+    "img": "disneyplus.png",
+    "url": "https://www.disneyplus.com/"
+  },
+  {
+    "id": "raiplay",
+    "name": "Rai Play",
+    "img": "raiplay.png",
+    "url": "https://www.raiplay.it/"
+  },
+  {
+    "id": "twitch",
+    "name": "Twitch",
+    "img": "twitch.png",
+    "url": "https://www.twitch.tv/"
+  }
+]
