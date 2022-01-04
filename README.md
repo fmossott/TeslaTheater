@@ -1,2 +1,3 @@
-# TeslaTheater
-personal Tesla Theater extensions
+# Tesla Theater
+
+Personal Tesla Theater extensions

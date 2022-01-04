@@ -1,0 +1,51 @@
+body {
+  font-family: sans-serif;
+  color: white;
+  background-color: #333;
+}
+
+a {
+  color: white;
+}
+
+.inline {
+  display: inline-block;
+  height: 0.8em;
+}
+
+h1, h2, p {
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  width: 100%;
+}
+
+.button {
+  height: 100px;
+  width: 150px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  display: table;
+  cursor: pointer;
+}
+
+.button > div {
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.button > div > img {
+  max-height: 100%;
+  max-width: 100%;
+}
