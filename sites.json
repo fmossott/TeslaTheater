@@ -14,6 +14,11 @@
     "img": "disneyplus.png",
     "url": "https://www.disneyplus.com/"
   },
+  "dazn": {
+    "name": "DaZn",
+    "img": "dazn.png",
+    "url": "https://www.dazn.com/"
+  },
   "twitch": {
     "name": "Twitch",
     "img": "twitch.png",
