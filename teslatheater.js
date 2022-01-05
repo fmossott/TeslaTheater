@@ -8,7 +8,7 @@ function loadSites(callback) {
 
 function open() {
   var link = $(this).attr('link');
-  gtag('event', 'open', {
+  gtag('event', `open-${$(this).id}`, {
     site: link,
     mode: fullscreen ? "fullscreen" : "same-window"
   });
@@ -121,7 +121,7 @@ $(function() {
 });
 
 function openFullScreen() {
-  gtag('event', 'open', {
+  gtag('event', 'open-fullscreen', {
     site: 'TeslaTheater',
     mode: "fullscreen"
   });
