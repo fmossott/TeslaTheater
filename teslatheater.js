@@ -8,7 +8,7 @@ function loadSites(callback) {
 
 function open() {
   var link = $(this).attr('link');
-  gtag('event', `open-${$(this).id}`, {
+  gtag('event', `open-${$(this).attr('id')}`, {
     site: link,
     mode: fullscreen ? "fullscreen" : "same-window"
   });
