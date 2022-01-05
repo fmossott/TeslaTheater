@@ -10,7 +10,7 @@ function open() {
   var link = $(this).attr('link');
   gtag('event', `open-${$(this).attr('id')}`, {
     site: link,
-    mode: fullscreen ? "fullscreen" : "same-window"
+    mode: fullscreen ? "same-window" : "fullscreen"
   });
 
   if (fullscreen) {
