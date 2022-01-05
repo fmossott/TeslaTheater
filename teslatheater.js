@@ -7,7 +7,12 @@ function loadSites(callback) {
 
 
 function open() {
-  window.location.href = "https://www.youtube.com/redirect?q="+$(this).attr("link");
+  var link = $(this).attr("link");
+  if (fullscreen) {
+    window.location.href = link;
+  } else {
+    window.location.href = "https://www.youtube.com/redirect?q="+link;
+  }
 }
 
 function buildPage(sites) {
@@ -28,10 +33,23 @@ function buildPage(sites) {
 
 }
 
+function queryparam(key) {
+  var match = window.location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+  return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+}
+
+var fullscreen=false;
+
 $(document).ready(function() {
+  const mode = queryparam("mode");
+  if (mode == "fullscreen") {
+    fullscreen=true;
+    $("#fullscreen").addClass("hidden");
+  }
+
   loadSites(sites => buildPage(sites));
 
-  $("#info").text(`${$(window).width()} x ${$(window).height()} - ${$(document).width()} x ${$(document).height()}`);
-
-  $("#fullscreen").on('click', () => window.location.href = "https://www.youtube.com/redirect?q="+window.location.href);
+  if (!fullscreen) {
+    $("#fullscreen").on('click', () => window.location.href = "https://www.youtube.com/redirect?q="+window.location.href+"?mode=fullscreen");
+  }
 });

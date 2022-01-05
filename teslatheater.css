@@ -60,3 +60,7 @@ h1, h2, p {
   padding: 10px;
   cursor: pointer;
 }
+
+.hidden {
+  display: none;
+}
