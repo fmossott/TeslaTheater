@@ -76,10 +76,11 @@ h1, h2, p {
   margin: auto;
   background: white;
   color: black;
-  padding: 10px;
+  padding: 7px;
 }
 
 .qrcode > * {
   display: block;
   margin: auto;
+  padding: 2px;
 }
