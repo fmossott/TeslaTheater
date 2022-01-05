@@ -8,12 +8,11 @@ function loadSites(callback) {
 
 function open() {
   var link = $(this).attr('link');
-  ga('send', 'event', {
-    eventCategory: 'link',
-    eventAction: fullscreen ? 'open-fullscreen' : 'open',
-    eventLabel: link,
-    transport: 'beacon'
+  gtag('event', 'open', {
+    site: link,
+    mode: fullscreen ? "fullscreen" : "same-window"
   });
+
   if (fullscreen) {
     window.location.href = link;
   } else {
@@ -106,6 +105,8 @@ var fullscreen=false;
 var appsStatus;
 
 $(function() {
+  gtag('config', 'GA_MEASUREMENT_ID', { 'transport_type': 'beacon'});
+
   const mode = queryparam('mode');
   if (mode == 'fullscreen') {
     fullscreen=true;
@@ -115,12 +116,14 @@ $(function() {
   loadSites(sites => buildPage(sites));
 
   if (!fullscreen) {
-    ga('send', 'event', {
-      eventCategory: 'link',
-      eventAction: 'open-fullscreen',
-      eventLabel: 'TeslaTheater',
-      transport: 'beacon'
-    });
-    $('#fullscreen').on('click', () => window.location.href = 'https://www.youtube.com/redirect?q='+window.location.href+'?mode=fullscreen');
+    $('#fullscreen').on('click', openFullScreen);
   }
 });
+
+function openFullScreen() {
+  gtag('event', 'open', {
+    site: 'TeslaTheater',
+    mode: "fullscreen"
+  });
+  window.location.href = 'https://www.youtube.com/redirect?q='+window.location.href+'?mode=fullscreen';
+}
