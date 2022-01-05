@@ -7,49 +7,108 @@ function loadSites(callback) {
 
 
 function open() {
-  var link = $(this).attr("link");
+  var link = $(this).attr('link');
   if (fullscreen) {
     window.location.href = link;
   } else {
-    window.location.href = "https://www.youtube.com/redirect?q="+link;
+    window.location.href = 'https://www.youtube.com/redirect?q='+link;
   }
 }
 
 function buildPage(sites) {
   const $apps = $('#apps');
 
-  $apps.children(".button").remove();
+  appsStatus = getCookie('appsStatus',{});
+  setCookie('appsStatus', appsStatus); // update cookie expiration every time
+
+  console.log(appsStatus);
+
+  $apps.children('.button').remove();
 
   const $template = $($('#site-template').html());
 
-  sites.forEach(site => {
-    const $app = $template.clone();
-    $app.attr('id', site.id);
-    $app.attr('link', site.url);
-    $app.find('img').attr('src', `images/${site.img}`).attr('alt', site.name);
-    $app.on("click", open);
-    $app.appendTo($apps);
-  });
+  // Add the sites from sorted list
+  if (appsStatus['order']) {
+    for (const siteId of appsStatus['order']) {
+      let site = sites[siteId];
+      if (site) {
+        addSiteButton($template, siteId, sites[siteId], $apps);
+        delete sites[siteId];
+      }
+    }
+  }
+  
+  for (const siteId in sites) {
+    addSiteButton($template, siteId, sites[siteId], $apps);
+  }
 
+  setTimeout(() => storeOrder($apps), 1000);
+
+  $apps.sortable({
+    placeholder: 'button highlight',
+    update: function(event, ui) {
+      storeOrder($(this));
+    }});
+}
+
+function storeOrder($apps) {
+  appsStatus['order'] = $apps.sortable('toArray');
+  setCookie('appsStatus', appsStatus);
+}
+
+function addSiteButton($template, siteId, site, $apps) {
+  const $app = $template.clone();
+  $app.attr('id', siteId);
+  $app.attr('link', site.url);
+  $app.find('img').attr('src', `images/${site.img}`).attr('alt', site.name);
+  $app.on('click', open);
+  $app.appendTo($apps);
 }
 
 function queryparam(key) {
-  var match = window.location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
-  return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+  var match = window.location.search.match(new RegExp('[?&]'+key+'=([^&]+)(&|$)'));
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function setCookie(cname, cvalue) {
+  if (cvalue) {
+    const d = new Date();
+    d.setTime(d.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
+    let expires = 'expires='+d.toUTCString();
+    document.cookie = cname + '=' + JSON.stringify(cvalue) + ';' + expires + ';path=/';
+    console.log(document.cookie);
+  }
+}
+
+function getCookie(cname, cdefvalue) {
+  let name = cname + '=';
+  let ca = document.cookie.split(';');
+  let cvalue=cdefvalue;
+  for(const c of ca) {
+    var cookie = c.trim();
+    if (cookie.indexOf(name) == 0) {
+      let value = cookie.substring(name.length, cookie.length);
+      if (value) {
+        cvalue = JSON.parse(value);
+      }
+    }
+  }
+  return cvalue;
 }
 
 var fullscreen=false;
+var appsStatus;
 
-$(document).ready(function() {
-  const mode = queryparam("mode");
-  if (mode == "fullscreen") {
+$(function() {
+  const mode = queryparam('mode');
+  if (mode == 'fullscreen') {
     fullscreen=true;
-    $("#fullscreen").addClass("hidden");
+    $('#fullscreen').addClass('hidden');
   }
 
   loadSites(sites => buildPage(sites));
 
   if (!fullscreen) {
-    $("#fullscreen").on('click', () => window.location.href = "https://www.youtube.com/redirect?q="+window.location.href+"?mode=fullscreen");
+    $('#fullscreen').on('click', () => window.location.href = 'https://www.youtube.com/redirect?q='+window.location.href+'?mode=fullscreen');
   }
 });

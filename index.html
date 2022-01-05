@@ -3,7 +3,9 @@
 <head>
   <title>Tesla Theater</title>
   <!-- JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="teslatheater.css">
   <script src="teslatheater.js"></script>
 </head>
@@ -11,17 +13,21 @@
   <h1><img src="images/tesla-white.png" class="inline"/ alt="Tesla">&nbsp; Theater</h1>
   <h2>Select an App</h2>
   <div id="apps" class="container">
-    <template id="site-template">
-      <div link="https://link.com/" class="button">
-        <div>
-          <img alt="site name"/>
-        </div>
-      </div>
-    </template>
   </div>
   <div class="container">
     <div id="fullscreen" class="actionbutton">Go Fullscreen</div>
+    <p>© 2022 by <a href="https://github.com/fmossott"><img src="images/github.png" alt="GitHub" class="inline"/> fmossott</a></p>
+    <div class="qrcode">
+      <p>Donate</p>
+      <img src="donateqr.png" alt="Donate"/>
+    </div>
   </div>
-  <p>© 2022 by <a href="https://github.com/fmossott"><img src="images/github.png" alt="GitHub" class="inline"/> fmossott</a></p>
+  <template id="site-template">
+    <div link="https://link.com/" class="button">
+      <div>
+        <img alt="site name"/>
+      </div>
+    </div>
+  </template>
 </body>
 </html>

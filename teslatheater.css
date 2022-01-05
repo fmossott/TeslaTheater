@@ -35,6 +35,12 @@ h1, h2, p {
   margin: 10px;
   display: table;
   cursor: pointer;
+  background: #333;
+}
+
+.button.highlight {
+  background: #888;
+  border: 0px;
 }
 
 .button > div {
@@ -63,4 +69,17 @@ h1, h2, p {
 
 .hidden {
   display: none;
+}
+
+.qrcode {
+  display: block;
+  margin: auto;
+  background: white;
+  color: black;
+  padding: 10px;
+}
+
+.qrcode > * {
+  display: block;
+  margin: auto;
 }

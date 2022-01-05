@@ -1,44 +1,37 @@
-[
-  {
-    "id": "primevideo",
+{
+  "primevideo": {
     "name": "Prime Video",
     "img": "primevideo.png",
     "url": "https://www.primevideo.com/"
   },
-  {
-    "id": "plex",
+  "plex": {
     "name": "Plex",
     "img": "plex.png",
     "url": "https://app.plex.tv/"
   },
-  {
-    "id": "disneyplus",
+  "disneyplus": {
     "name": "Disney+",
     "img": "disneyplus.png",
     "url": "https://www.disneyplus.com/"
   },
-  {
-    "id": "raiplay",
-    "name": "Rai Play",
-    "img": "raiplay.png",
-    "url": "https://www.raiplay.it/"
-  },
-  {
-    "id": "twitch",
+  "twitch": {
     "name": "Twitch",
     "img": "twitch.png",
     "url": "https://www.twitch.tv/"
   },
-  {
-    "id": "mediaset",
+  "raiplay": {
+    "name": "Rai Play",
+    "img": "raiplay.png",
+    "url": "https://www.raiplay.it/"
+  },
+  "mediaset": {
     "name": "Mediaset",
     "img": "mediaset.png",
     "url": "https://www.mediasetplay.mediaset.it/"
   },
-  {
-    "id": "skytg24",
+  "skytg24": {
     "name": "Sky TG24",
     "img": "skytg24.png",
     "url": "https://tg24.sky.it/"
   }
-]
+}
