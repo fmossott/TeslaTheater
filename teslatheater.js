@@ -30,5 +30,8 @@ function buildPage(sites) {
 
 $(document).ready(function() {
   loadSites(sites => buildPage(sites));
+
   $("#info").text(`${window.screen.width} x ${window.screen.height}`);
+
+  $("#fullscreen").on('click', () => window.location.href = "https://www.youtube.com/redirect?q="+window.location.href);
 });
