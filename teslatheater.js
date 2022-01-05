@@ -8,6 +8,12 @@ function loadSites(callback) {
 
 function open() {
   var link = $(this).attr('link');
+  ga('send', 'event', {
+    eventCategory: 'link',
+    eventAction: fullscreen ? 'open-fullscreen' : 'open',
+    eventLabel: link,
+    transport: 'beacon'
+  });
   if (fullscreen) {
     window.location.href = link;
   } else {
@@ -37,7 +43,7 @@ function buildPage(sites) {
       }
     }
   }
-  
+
   for (const siteId in sites) {
     addSiteButton($template, siteId, sites[siteId], $apps);
   }
@@ -109,6 +115,12 @@ $(function() {
   loadSites(sites => buildPage(sites));
 
   if (!fullscreen) {
+    ga('send', 'event', {
+      eventCategory: 'link',
+      eventAction: 'open-fullscreen',
+      eventLabel: 'TeslaTheater',
+      transport: 'beacon'
+    });
     $('#fullscreen').on('click', () => window.location.href = 'https://www.youtube.com/redirect?q='+window.location.href+'?mode=fullscreen');
   }
 });
