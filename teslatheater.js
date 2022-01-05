@@ -8,8 +8,9 @@ function loadSites(callback) {
 
 function open() {
   var link = $(this).attr('link');
-  gtag('event', `open-${$(this).attr('id')}`, {
-    site: link,
+  gtag('event', `open`, {
+    siteId: $(this).attr('id'),
+    siteUrl: link,
     mode: fullscreen ? "same-window" : "fullscreen"
   });
 
@@ -122,7 +123,8 @@ $(function() {
 
 function openFullScreen() {
   gtag('event', 'open-fullscreen', {
-    site: 'TeslaTheater',
+    siteId: 'TeslaTheater',
+    siteUrl: window.location.href,
     mode: "fullscreen"
   });
   window.location.href = 'https://www.youtube.com/redirect?q='+window.location.href+'?mode=fullscreen';
