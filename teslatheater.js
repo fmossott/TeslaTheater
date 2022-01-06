@@ -12,8 +12,9 @@ function open() {
   }
 
   var link = $(this).attr('link');
-  gtag('event', `open`, {
-    siteId: $(this).attr('id'),
+  let siteId = $(this).attr('id');
+  gtag('event', `open-${siteId}`, {
+    siteId: siteId,
     siteUrl: link,
     mode: fullscreen ? "same-window" : "fullscreen"
   });
