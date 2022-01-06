@@ -42,10 +42,7 @@ function openFullScreen() {
 function buildPage(sites) {
   const $apps = $('#apps');
 
-  appsStatus = getCookie('TeslaTheaterStatus',{});
-  setCookie('TeslaTheaterStatus', appsStatus); // update cookie expiration every time
-
-  console.log(appsStatus);
+  loadStatus();
 
   $apps.children('.button').remove();
 
@@ -69,15 +66,34 @@ function buildPage(sites) {
   $('.button').on('click', open);
   $('.hiddenswitch').on('click', hideButton);
 
-  setTimeout(() => storeOrder($apps), 1000);
+  setTimeout(() => storeStatus($apps), 1000);
 
   $apps.sortable({
     placeholder: 'button highlight',
     update: function(event, ui) {
-      storeOrder($(this));
+      storeStatus($(this));
     }});
 
   editMode(false);
+}
+
+function loadStatus() {
+  let storage = window.localStorage.getItem('TeslaTheaterStatus');
+  let cookie = getCookie('TeslaTheaterStatus');
+
+  if (storage) {
+    appsStatus = JSON.parse(storage);
+  } else if (cookie) {
+    appsStatus = cookie;
+  } else {
+    appsStatus = {};
+  }
+  
+  console.log(`Loaded status (s:${storage!=undefined?'y':'n'}, c:${cookie!=undefined?'y':'n'}): ${JSON.stringify(appsStatus)}`);
+  $('#storage').toggleClass('hidden', !storage);
+  $('#cookie').toggleClass('hidden', !cookie);
+
+  setCookie('TeslaTheaterStatus', appsStatus); // update cookie expiration every time
 }
 
 function hideButton() {
@@ -103,12 +119,13 @@ function hideButton() {
   $(this).children('em').toggleClass('fa-eye-slash', newStatus);
   $(this).children('em').toggleClass('fa-eye', !newStatus);
 
-  storeOrder($('#apps'));
+  storeStatus($('#apps'));
 }
 
-function storeOrder($apps) {
+function storeStatus($apps) {
   appsStatus['order'] = $apps.sortable('toArray');
   setCookie('TeslaTheaterStatus', appsStatus);
+  window.localStorage.setItem('TeslaTheaterStatus', JSON.stringify(appsStatus));
 }
 
 function addSiteButton($template, siteId, site, $apps) {

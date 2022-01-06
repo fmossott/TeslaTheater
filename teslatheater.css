@@ -139,6 +139,14 @@ h1 {
   right: 0;
 }
 
+.status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  font-size: small;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
