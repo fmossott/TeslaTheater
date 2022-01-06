@@ -119,6 +119,12 @@ $(function() {
   if (!fullscreen) {
     $('#fullscreen').on('click', openFullScreen);
   }
+
+  $('#editmode input').change(function() {
+    console.log(`$(this).is(':checked') = ${$(this).is(':checked')}`);
+    console.log(`this.checked = ${this.checked}`);
+    editMode($(this).is(':checked'));
+  });
 });
 
 function openFullScreen() {

@@ -31,6 +31,10 @@
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
   <script src="js/jquery.ui.touch-punch.min.js"></script>
   
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/39e55326bb.js" crossorigin="anonymous"></script>
+
+  <!-- Custom -->
   <link rel="stylesheet" href="teslatheater.css">
   <script src="teslatheater.js"></script>
 </head>
@@ -47,10 +51,21 @@
       <img src="donateqr.png" alt="Donate"/>
     </div>
   </div>
+  <div id="editmode-container">
+    Customize Apps:
+    <!-- Rounded switch -->
+    <label id="editmode" class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
   <template id="site-template">
     <div link="https://link.com/" class="button">
-      <div>
-        <img alt="site name"/>
+      <div class="hiddenswitch">
+        <em class="far fa-eye"></em> <!-- fa-eye-slash -->
+      </div>
+      <div class="logo-container">
+        <img alt="site name">
       </div>
     </div>
   </template>
