@@ -14,6 +14,11 @@
     "img": "disneyplus.png",
     "url": "https://www.disneyplus.com/"
   },
+  "nowtv": {
+    "name": "NOW TV",
+    "img": "nowtv.png",
+    "url": "https://www.nowtv.com/"
+  },
   "dazn": {
     "name": "DaZn",
     "img": "dazn.png",
@@ -38,5 +43,10 @@
     "name": "Sky TG24",
     "img": "skytg24.png",
     "url": "https://tg24.sky.it/"
+  },
+  "airtesla": {
+    "name": "Air Tesla",
+    "img": "airtesla.png",
+    "url": "http://6.6.6.6/"
   }
 }
