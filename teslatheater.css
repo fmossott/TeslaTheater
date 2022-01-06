@@ -24,6 +24,8 @@ h1, h2, p {
   justify-content: center; 
   align-items: center;
   width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .button {
@@ -85,12 +87,29 @@ h1, h2, p {
   display: none;
 }
 
+.footer-container {
+  display: flex;
+  width: 100%;
+  font-size: smaller;
+  align-items: flex-end;
+  padding-top: 20px;
+}
+
+.footer-container > div {
+  flex-basis: 50px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 10px;
+}
+
 .qrcode {
+  width: 104px;
   display: block;
   margin: auto;
   background: white;
   color: black;
   padding: 7px;
+  text-decoration: none;
 }
 
 .qrcode > * {
