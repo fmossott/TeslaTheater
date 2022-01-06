@@ -18,6 +18,11 @@ h1, h2, p {
   width: 100%;
 }
 
+h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -118,12 +123,13 @@ h1, h2, p {
   padding: 2px;
 }
 
-#editmode-container {
+#settings-container {
   position:absolute;
   top:0;
   right:0;
   padding: 10px;
   font-size: small;
+  text-align: end;
 }
 
 .hiddenswitch {
