@@ -24,6 +24,11 @@
     "img": "dazn.png",
     "url": "https://www.dazn.com/"
   },
+  "paramountplus": {
+    "name": "Paramount+",
+    "img": "paramountplus.png",
+    "url": "https://www.paramountplus.com/"
+  },
   "twitch": {
     "name": "Twitch",
     "img": "twitch.png",
