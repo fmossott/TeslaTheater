@@ -29,6 +29,11 @@
     "img": "paramountplus.png",
     "url": "https://www.paramountplus.com/"
   },
+  "discoveryplus": {
+    "name": "Discovery+",
+    "img": "discoveryplus.png",
+    "url": "https://www.discoveryplus.com/"
+  },
   "twitch": {
     "name": "Twitch",
     "img": "twitch.png",
